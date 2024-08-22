@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      function toggleBalance() {
+        const balanceElement = document.getElementById("balance");
+        const eyeIcon = document.getElementById("eyeIcon");
+        
+        if (balanceElement.textContent === "******") {
+          balanceElement.textContent = "₦1,000,000"; 
+          eyeIcon.classList.remove("fa-eye-slash");
+          eyeIcon.classList.add("fa-eye");
+        } else {
+          balanceElement.textContent = "******";
+          eyeIcon.classList.remove("fa-eye");
+          eyeIcon.classList.add("fa-eye-slash");
+        }
+      }
+    </script>
   </head>
   <body class="pt-8">
     <h1 class="text-3xl font-bold text-center "></h1>
@@ -24,11 +40,13 @@
       <!-- Balance Section -->
       <div class="bg-green-500 w-full text-white flex flex-col space-y-6 card p-5 h-[250px] rounded-lg md:h-[300px]">
         <span class="text-white flex justify-between">
-          <p class="text-sm md:text-lg">Available balance <i class="fa-regular fa-eye-slash"></i></p>
+          <p class="text-sm md:text-lg">Available balance 
+            <i id="eyeIcon" class="fa-regular fa-eye-slash cursor-pointer" onclick="toggleBalance()"></i>
+          </p>
           <p class="text-sm md:text-lg">Transaction History ></p>
         </span>
         <span class="hash">
-          <h1 class="text-3xl font-bold">******</h1>
+          <h1 id="balance" class="text-3xl font-bold">******</h1>
         </span>
         <span class="earn">
           <h1>Earn rewards daily ></h1>
